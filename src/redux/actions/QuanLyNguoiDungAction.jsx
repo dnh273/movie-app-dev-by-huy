@@ -26,7 +26,12 @@ export const dangNhapAction = (thongTinDangNhap) => {
         history.goBack("./home");
       }
     } catch (error) {
-      console.log("error", error);
+      Swal.fire({
+        title: "Đăng nhập thất bại!",
+        html: `${error.response.data.content}`,
+        icon: "error", //success, error, warning, question
+        confirmButtonText: "OK",
+      });
     }
   };
 };
@@ -42,7 +47,7 @@ export const layThongTinNguoiDungAction = (value) => {
         });
       }
     } catch (error) {
-      console.log("error", error);
+      console.log("error lay thong tin nguoi dung", error);
     }
   };
 };
@@ -62,8 +67,6 @@ export const dangKyAction = (thongTinDangKy) => {
         history.goBack("./home");
       }
     } catch (error) {
-      console.log("error", error);
-      console.log("error", error.response.data.content);
       Swal.fire({
         title: "Đăng ký thất bại!",
         html: `${error.response.data.content}`,
@@ -87,7 +90,6 @@ export const capNhatThongTinAction = (thongTinCapNhat) => {
           icon: "success", //success, error, warning, question
           confirmButtonText: "OK",
         });
-        console.log(result);
       }
     } catch (error) {
       Swal.fire({
@@ -121,7 +123,6 @@ export const capNhatThongTinAdminAction = (thongTinCapNhat) => {
         icon: "error", //success, error, warning, question
         confirmButtonText: "OK",
       });
-      console.log(error);
     }
   };
 };
@@ -173,7 +174,7 @@ export const timKiemNguoiDungAction = (taiKhoanNguoiDung) => {
       console.log(result);
       dispatch({ type: TIM_KIEM_NGUOI_DUNG, user: result.data.content });
     } catch (error) {
-      console.log(error);
+      console.log(error); 
     }
   };
 };

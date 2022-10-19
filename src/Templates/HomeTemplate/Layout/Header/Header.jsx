@@ -1,4 +1,4 @@
-import { Select } from "antd";
+import { Avatar, Select } from "antd";
 import { Option } from "antd/lib/mentions";
 import React, { Fragment } from "react";
 import { useTranslation } from "react-i18next";
@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import { history } from "../../../../App";
 import _ from "lodash";
 import { useSelector } from "react-redux";
+import { TOKEN, USER_LOGIN } from "../../../../util/setting/config";
 
 export default function Header() {
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
@@ -29,7 +30,7 @@ export default function Header() {
             {t("signin")}
           </button>
           <button
-            className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+            className="self-center px-8 py-3 mr-5 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
             onClick={() => {
               history.push("/register");
             }}
@@ -40,14 +41,41 @@ export default function Header() {
       );
     }
     return (
-      <button
-        onClick={() => {
-          history.push("/profile");
-        }}
-        className="self-center px-8 py-3 rounded"
-      >
-        hi {userLogin.taiKhoan}
-      </button>
+      <>
+        <button
+          onClick={() => {
+            history.push("/profile");
+          }}
+          className="self-center px-8 py-3 rounded"
+        >
+          <Avatar
+            style={{
+              color: "#f56a00",
+              backgroundColor: "#fde3cf",
+              width: "50px",
+              height: "50px",
+              justifyItems: "center",
+              alignItems: "center",
+              display: "flex",
+              fontSize: "20px",
+            }}
+          >
+            {" "}
+            {userLogin.taiKhoan.substr(0, 1)}
+          </Avatar>
+        </button>
+        <button
+          className="text-yellow-500 mr-5"
+          onClick={() => {
+            localStorage.removeItem(USER_LOGIN);
+            localStorage.removeItem(TOKEN);
+            history.push("/home");
+            window.location.reload();
+          }}
+        >
+          Đăng xuất
+        </button>
+      </>
     );
   };
 
@@ -76,22 +104,14 @@ export default function Header() {
               Home
             </NavLink>
           </li>
+
           <li className="flex">
             <NavLink
-              to="/contact"
+              to="/admin"
               className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white"
               activeClassName="border-b-1 border-white"
             >
-              Contact
-            </NavLink>
-          </li>
-          <li className="flex">
-            <NavLink
-              to="/news"
-              className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white"
-              activeClassName="border-b-1 border-white"
-            >
-              News
+              Admin
             </NavLink>
           </li>
         </ul>

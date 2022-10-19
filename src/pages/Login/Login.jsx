@@ -14,9 +14,10 @@ export default function Login(props) {
 
   const formik = useFormik({
     initialValues: {
-      taiKhoan: "",
-      matKhau: "",
+      taiKhoan: "keyloge2000",
+      matKhau: "123456",
     },
+
     onSubmit: (values) => {
       console.log("value", values);
 
@@ -24,6 +25,8 @@ export default function Login(props) {
       dispatch(action);
     },
   });
+
+  console.log(formik.initialValues);
 
   return (
     <form
@@ -86,6 +89,7 @@ export default function Login(props) {
                 onChange={formik.handleChange}
                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                 placeholder="Nhập vào tài khoản"
+                defaultValue={formik.initialValues.taiKhoan}
               />
             </div>
             <div className="mt-8">
@@ -93,14 +97,7 @@ export default function Login(props) {
                 <div className="text-sm font-bold text-gray-700 tracking-wide">
                   Mật khẩu
                 </div>
-                <div>
-                  <a
-                    className="text-xs font-display font-semibold text-indigo-600 hover:text-indigo-800
-                          cursor-pointer"
-                  >
-                    Quên mật khẩu ?
-                  </a>
-                </div>
+                <div></div>
               </div>
               <input
                 type="password"
@@ -108,6 +105,7 @@ export default function Login(props) {
                 onChange={formik.handleChange}
                 className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                 placeholder="Nhập vào mật khẩu"
+                defaultValue={formik.initialValues.matKhau}
               />
             </div>
             <div className="mt-10">

@@ -40,7 +40,12 @@ export default function Footer() {
             <div className="grid grid-cols-3">
               {arrHeThongRap.map((item, index) => {
                 return (
-                  <div key={index}>
+                  <div
+                    key={index}
+                    className="pb-6
+                
+                "
+                  >
                     <img src={item.logo} alt="" style={{ width: 50 }} />
                   </div>
                 );
@@ -51,30 +56,16 @@ export default function Footer() {
             <p className="pb-1 text-lg font-medium">CYBERSOFT</p>
             <ul>
               <li>
-                <a href="#" className="hover:text-violet-600">
-                  Link
-                </a>
+                <i className="pr-3 pb-2 fa fa-map-marker-alt"></i>Thái Hà, Chợ
+                Dừa, Hà Nội
               </li>
               <li>
-                <a href="#" className="hover:text-violet-600">
-                  Link
-                </a>
+                <i className="pr-3 pb-2 fa fa-mobile-alt"></i>0334-068-547
               </li>
               <li>
-                <a href="#" className="hover:text-violet-600">
-                  Link
-                </a>
+                <i className="pr-3 pb-2 fa fa-envelope"></i>dnh2703@gmail.com
               </li>
-              <li>
-                <a href="#" className="hover:text-violet-600">
-                  Link
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-violet-600">
-                  Link
-                </a>
-              </li>
+
               {/**/}
             </ul>
           </div>

@@ -21,12 +21,10 @@ import ShowTime from './pages/Admin/Showtime/Showtime';
 import AdminTemplate from './Templates/AdminTemplate/AdminTemplate';
 import AddNewUser from './pages/Admin/Dashbroad/AddNewUser/AddNewUser';
 import EditUser from './pages/Admin/Dashbroad/EditUser/EditUser';
-
-const CheckoutTemplateLazy = lazy(() =>
-  import('./Templates/CheckoutTemplate/CheckoutTemplate')
-)
+import CheckoutTemplate from './Templates/CheckoutTemplate/CheckoutTemplate';
 
 export const history = createBrowserHistory()
+
 
 
 function App() {
@@ -53,7 +51,7 @@ function App() {
         <AdminTemplate path="/admin/users/edit/:id" exact Component={EditUser} />
 
         <HomeTemplate path='/' exact Component={Home}></HomeTemplate>
-        <CheckoutTemplateLazy path="/checkout/:id" exact component={Checkout} />
+        <HomeTemplate path="/checkout/:id" exact component={Checkout} />
 
       </Switch>
     </Router>

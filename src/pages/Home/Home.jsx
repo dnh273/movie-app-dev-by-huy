@@ -14,11 +14,6 @@ export default function Home(props) {
   const { heThongRapChieu } = useSelector((state) => state.QuanLyRapReducer);
   const dispatch = useDispatch();
   console.log(arrFilm);
-  // const renderFilm = () => {
-  //   return arrFilm.map((item, index) => {
-  //     return <Film key={index}> </Film>;
-  //   });
-  // };
 
   useEffect(() => {
     const action = layDanhSachPhimAction();

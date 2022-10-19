@@ -410,7 +410,7 @@ function LichSuDatVe(props) {
   };
 
   return (
-    <div className="w-full grid grid-cols-3 gap-4">
+    <div className="w-full grid grid-cols-3 gap-4 justify-center">
       {/* component */}
       {/* Table */}
       {renderLichSuDatVe()}
